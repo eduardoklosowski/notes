@@ -183,3 +183,7 @@ services:
 volumes:
   rabbitmq-data:
 ```
+
+### Python
+
+Exemplo em Python: [`rabbitmq-python.tar.gz`](rabbitmq-python.tar.gz)
