@@ -1,0 +1,19 @@
+#!/bin/sh -eu
+
+cd ~/.pyenv
+ref="$(git name-rev HEAD --name-only)"
+
+git fetch origin "$ref" --depth=1
+git checkout -B "$ref" origin/"$ref"
+
+rm -f .git/hooks/*.sample
+git tag | xargs --no-run-if-empty git tag -d
+if [ "$(find .git/objects -maxdepth 1 -name '[0-9a-f][0-9a-f]' | wc -l)" -gt 0 ] || [ "$(find .git/objects/pack -name 'pack-*.pack' | wc -l)" -gt 1 ]; then
+    git reflog expire --expire=now --all
+    git gc --prune=now --aggressive
+fi
+
+if [ -e libexec/pyenv-realpath.dylib ]; then
+    src/configure
+    make -C src
+fi
