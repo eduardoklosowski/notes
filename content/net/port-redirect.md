@@ -16,4 +16,7 @@ socat -dd TCP-LISTEN:8080,fork,reuseaddr TCP:10.0.0.1:80
 
 # Porta UDP
 socat -dd UDP-LISTEN:8080,fork,reuseaddr UDP:10.0.0.1:8000
+
+# UNIX Socket
+socat -dd TCP-LISTEN:8080,fork,reuseaddr UNIX:/var/run/http.sock
 ```
