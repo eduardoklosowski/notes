@@ -45,3 +45,11 @@ http -v --verify=no https://duckduckgo.com/
 # HTTPie informando certificado da CA
 http -v --verify=mitmproxy-ca-cert.pem https://duckduckgo.com/
 ```
+
+### Requisições via SOCKS
+
+```sh
+# Define proxy
+export ALL_PROXY='socks5://127.0.0.1:9050'  # Resolve DNS localmente
+export ALL_PROXY='socks5h://127.0.0.1:9050'  # Resolve DNS no servidor
+```
