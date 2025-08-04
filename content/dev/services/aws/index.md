@@ -8,6 +8,7 @@
 
 - [Site](https://aws.amazon.com/pt/)
 - [Documentação](https://docs.aws.amazon.com/)
+- [Referência de Configuração](https://docs.aws.amazon.com/sdkref/latest/guide/settings-reference.html)
 
 **Ferramentas auxiliares:**
 
