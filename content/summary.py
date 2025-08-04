@@ -13,7 +13,7 @@ def sort_paths(files: Iterable[Path]) -> Iterable[Path]:
             for f in files
             if f.is_dir() or (f.name.endswith('.md') and f.name != 'index.md')
         ),
-        key=lambda f: f.name.upper(),
+        key=lambda f: read_title(f).upper(),
     )
 
 
