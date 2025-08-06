@@ -6,7 +6,21 @@
 
 </div>
 
-## TCP/IP
+## UNIX
+
+### Servidor UNIX
+
+```sh
+socat -dd stdio unix-listen:app.sock,fork
+```
+
+### Cliente UNIX
+
+```sh
+socat -dd stdio unix-connect:app.sock
+```
+
+## UDP
 
 ### Servidor UDP
 
@@ -23,6 +37,8 @@ nc -vu localhost 8000
 
 socat -dd stdio udp-connect:localhost:8000
 ```
+
+## TCP
 
 ### Servidor TCP
 
