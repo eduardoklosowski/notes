@@ -104,7 +104,7 @@ region = us-east-1
 
 [sso-session my-sso]
 sso_region = us-east-1
-sso_start_url = https://sso.mycompany.com/start
+sso_start_url = https://d-0000000000.awsapps.com/start
 sso_registration_scopes = sso:account:access
 ```
 
