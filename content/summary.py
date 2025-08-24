@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-import sys
 from pathlib import Path
 from typing import Iterable
 
@@ -19,6 +18,8 @@ def sort_paths(files: Iterable[Path]) -> Iterable[Path]:
 
 def read_title(file: Path) -> str:
     try:
+        if file.is_dir():
+            file /= 'index.md'
         with file.open() as fd:
             first_line = fd.readline()
     except Exception:
@@ -31,7 +32,7 @@ def read_title(file: Path) -> str:
     return file.name.removesuffix('.md')
 
 
-def print_page(page_path: Path):
+def print_page(page_path: Path) -> None:
     indent = '  ' * (len(page_path.parts) - 1)
     path = page_path
     if path.is_dir():
@@ -47,13 +48,20 @@ def print_page(page_path: Path):
             print_page(c)
 
 
-os.chdir(Path(sys.argv[0]).parent)
+def main(path: Path) -> None:
+    os.chdir(path)
 
-root = Path('.')
-sections = sort_paths(f for f in root.iterdir() if f.is_dir())
+    root = Path('.')
+    sections = sort_paths(f for f in root.iterdir() if f.is_dir())
 
-print('# Índice')
-print()
-print('[Notas](index.md)')
-for section in sections:
-    print_page(section)
+    print('# Índice')
+    print()
+    print('[Notas](index.md)')
+    for section in sections:
+        print_page(section)
+
+
+if __name__ == '__main__':
+    import sys
+
+    main(Path(sys.argv[0]).parent)
