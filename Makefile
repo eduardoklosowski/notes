@@ -1,10 +1,15 @@
-MDBOOK_VERSION=0.4.52
-MDBOOK_TOC_VERSION=0.14.2
-BINARIES=mdbook mdbook-toc
-SUMMARY_MDFILE=content/SUMMARY.md
+MDBOOK_VERSION := 0.4.52
+MDBOOK_TOC_VERSION := 0.14.2
 
+BINARIES := mdbook mdbook-toc
+SUMMARY_MDFILE := content/SUMMARY.md
+BUILD_DIR := public
+
+
+# mdBook
 
 .PHONY: build serve $(SUMMARY_MDFILE)
+
 build: $(BINARIES) $(SUMMARY_MDFILE)
 	./mdbook build
 
@@ -15,7 +20,10 @@ $(SUMMARY_MDFILE): content/summary.py
 	python3 $< > $@
 
 
+# Download Tools
+
 .PHONY: download-all-binaries
+
 download-all-binaries: $(BINARIES)
 
 mdbook:
@@ -25,9 +33,12 @@ mdbook-toc:
 	wget -O - https://github.com/badboy/mdbook-toc/releases/download/$(MDBOOK_TOC_VERSION)/mdbook-toc-$(MDBOOK_TOC_VERSION)-x86_64-unknown-linux-musl.tar.gz | tar xzf -
 
 
+# Clean
+
 .PHONY: clean dist-clean
+
 clean:
-	rm -rf public $(SUMMARY_MDFILE)
+	rm -rf $(BUILD_DIR) $(SUMMARY_MDFILE)
 
 dist-clean: clean
 	rm -rf $(BINARIES)
