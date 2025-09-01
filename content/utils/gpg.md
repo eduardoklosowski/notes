@@ -43,3 +43,25 @@ gpg --sign --encrypt --local-user <id-chave-origem> --recipient <id-chave-destin
 gpg -d <criptografado>
 gpg --decrypt --output <arquivo> <criptografado>
 ```
+
+## Servidor de Chaves
+
+- [keys.openpgp.org](https://keys.openpgp.org/)
+- [OpenPGP keyserver](https://keyserver.ubuntu.com/)
+- [Debian Public Key Server](https://keyring.debian.org/)
+
+Servidor pode ser definido com o parâmetro `--keyserver hkps://keyserver.ubuntu.com:443`.
+
+```sh
+# Baixar chave
+gpg --recv-keys <id-chave>
+
+# Enviar chave
+gpg --send-keys <id-chave>
+
+# Procura por chave no servidor
+gpg --search-keys <pesquisa>
+
+# Atualiza chaves locais
+gpg --refresh-keys
+```
