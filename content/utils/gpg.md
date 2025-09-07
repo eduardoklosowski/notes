@@ -24,6 +24,30 @@ gpg -k
 gpg --list-keys --keyid-format LONG
 ```
 
+## Exportar/Importar uma Chave
+
+```sh
+# Exporta Chave Pública
+gpg --armor --export <id-chave>
+
+# Exporta Chave Privada
+gpg --armor --export-secret-keys <id-chave>
+
+# Importa Chave
+gpg --import <arquivo-chave>
+gpg --edit-key <id-chave>
+```
+
+## Deleta uma Chave
+
+```sh
+# Deleta Chave Pública
+gpg --delete-keys <id-chave>
+
+# Deleta Chave Privada
+gpg --delete-secret-keys <id-chave>
+```
+
 ## Criptografia e Assinatura
 
 ```sh
