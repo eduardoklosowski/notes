@@ -6,6 +6,14 @@
 
 </div>
 
+## Fechar acesso quando cai a conexão
+
+As vezes quando a conexão é perdida, o terminal fica travado. Para encerrar o acesso SSH nestes casos basta digitar:
+
+```txt
+~.
+```
+
 ## Manter e compartilhar sessão
 
 O [tmux](https://github.com/tmux/tmux/wiki) pode ser usado em conjunto com o ssh para manter a sessão caso a conexão seja perdida, ou compartilhar a tela com outros usuários.
