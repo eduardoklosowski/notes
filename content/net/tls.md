@@ -99,6 +99,17 @@ openssl verify -CAfile ca.crt -untrusted intermediario.crt servidor.crt
 openssl verify -CAfile ca.crt -untrusted intermediario.crt ca.crt intermediario.crt folha.crt
 ```
 
+**Exibe certificado de servidor HTTPS:**
+
+```sh
+get-cert() {
+  # Arg1: Endereço do servidor
+  # Arg2: Porta do servidor
+  # Arg3: Hostname, se diferente do endereço
+  echo | openssl s_client -servername "${3:-$1}" -connect "$1":"$2" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > certificate.crt
+}
+```
+
 ## Autoridade Certificadora (CA)
 
 `Makefile`:
