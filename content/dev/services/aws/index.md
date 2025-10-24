@@ -12,7 +12,7 @@
 
 **Ferramentas auxiliares:**
 
-- [AWS Policy Generator](https://awspolicygen.s3.us-east-1.amazonaws.com/policygen.html)
+- [AWS Policy Generator](https://awspolicygen.s3.amazonaws.com/policygen.html)
 
 ## Cliente CLI
 
