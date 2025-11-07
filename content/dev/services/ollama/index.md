@@ -55,3 +55,4 @@ ollama run <name>:<tag>
 
 - [gemma3](https://ollama.com/library/gemma3)
 - [qwen3](https://ollama.com/library/qwen3)
+- [granite4](https://ollama.com/library/granite4)
