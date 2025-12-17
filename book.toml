@@ -19,6 +19,7 @@ git-repository-icon = "fab-github"
 edit-url-template = "https://github.com/eduardoklosowski/notes/edit/main/{path}"
 default-theme = "navy"
 additional-css = ["static/toc.css"]
+no-section-label = true
 sidebar-header-nav = false
 
 [output.html.fold]
