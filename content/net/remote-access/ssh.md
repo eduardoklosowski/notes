@@ -34,3 +34,12 @@ complete -F _ssh ssht
 ```
 
 Após reiniciar o shell será possível conectar no servidor usando `ssht <endereço>`, exemplo `ssht localhost`. E caso a conexão seja perdida, ou usando o comando `Ctrl + b, d` (se não foi alterado na configuração do tmux), basta usar o mesmo comando para reconectar no servidor e voltar a sessão que estava aberta.
+
+## Acesso Através de Outro Sevidor
+
+```
+Host <host-desejado>
+  ProxyJump [<user-proxy>@]<host-proxy>[:<port-proxy>]
+  ProxyCommand ssh <host-proxy> -W %h:%p
+  ProxyCommand ssh <host-proxy> nc %h %p
+```
