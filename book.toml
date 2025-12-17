@@ -3,10 +3,8 @@ title = "Notas Klosowski"
 description = "Minhas notas pessoais"
 authors = ["Eduardo Klosowski"]
 language = "pt-BR"
-src = "content"
 
 [build]
-build-dir = "public"
 create-missing = false
 
 [preprocessor.toc]
@@ -17,9 +15,10 @@ renderer = ["html"]
 [output.html]
 site-url = "/notes/"
 git-repository-url = "https://github.com/eduardoklosowski/notes"
-git-repository-icon = "fa-github"
+git-repository-icon = "fab-github"
 edit-url-template = "https://github.com/eduardoklosowski/notes/edit/main/{path}"
 additional-css = ["static/toc.css"]
+sidebar-header-nav = false
 
 [output.html.fold]
 enable = true

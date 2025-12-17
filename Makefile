@@ -1,9 +1,10 @@
-MDBOOK_VERSION := 0.4.52
-MDBOOK_TOC_VERSION := 0.14.2
+MDBOOK_VERSION := 0.5.2
+MDBOOK_TOC_VERSION := 0.15.2
 
 BINARIES := mdbook mdbook-toc
-SUMMARY_MDFILE := content/SUMMARY.md
-BUILD_DIR := public
+SRC_DIR := src
+SUMMARY_MDFILE := $(SRC_DIR)/SUMMARY.md
+BUILD_DIR := book
 
 
 # mdBook
@@ -16,7 +17,7 @@ build: $(BINARIES) $(SUMMARY_MDFILE)
 serve: $(BINARIES) $(SUMMARY_MDFILE)
 	./mdbook serve -n 127.0.0.1 -p 8000
 
-$(SUMMARY_MDFILE): content/summary.py
+$(SUMMARY_MDFILE): $(SRC_DIR)/summary.py
 	python3 $< > $@
 
 

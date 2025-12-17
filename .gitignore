@@ -1,4 +1,4 @@
 /mdbook
 /mdbook-toc
-/public
-/content/SUMMARY.md
+/book
+/src/SUMMARY.md

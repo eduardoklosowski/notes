@@ -33,7 +33,7 @@ jobs:
       - name: Upload do Site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: public/
+          path: book/
 
   deploy:
     name: Deploy
