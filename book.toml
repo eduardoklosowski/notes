@@ -17,6 +17,7 @@ site-url = "/notes/"
 git-repository-url = "https://github.com/eduardoklosowski/notes"
 git-repository-icon = "fab-github"
 edit-url-template = "https://github.com/eduardoklosowski/notes/edit/main/{path}"
+default-theme = "navy"
 additional-css = ["static/toc.css"]
 sidebar-header-nav = false
 
