@@ -28,3 +28,8 @@ Obs: A imagem importada terá outro hash.
 docker image save image:latest -o image.tar
 docker image import image.tar image:latest
 ```
+
+## Ferramentas Terceiras
+
+- [Conversor docker run para docker compose](https://www.composerize.com/)
+- [Conversor docker compose para docker run](https://www.decomposerize.com/)
