@@ -4,13 +4,15 @@ import os
 from pathlib import Path
 from typing import Iterable
 
+INDEX_FILENAME = 'README.md'
+
 
 def sort_paths(files: Iterable[Path]) -> Iterable[Path]:
     yield from sorted(
         (
             f
             for f in files
-            if f.is_dir() or (f.name.endswith('.md') and f.name != 'index.md')
+            if f.is_dir() or (f.name.endswith('.md') and f.name != INDEX_FILENAME)
         ),
         key=lambda f: read_title(f).upper(),
     )
@@ -19,7 +21,7 @@ def sort_paths(files: Iterable[Path]) -> Iterable[Path]:
 def read_title(file: Path) -> str:
     try:
         if file.is_dir():
-            file /= 'index.md'
+            file /= INDEX_FILENAME
         with file.open() as fd:
             first_line = fd.readline()
     except Exception:
@@ -27,7 +29,7 @@ def read_title(file: Path) -> str:
 
     if first_line.startswith('# '):
         return first_line.removeprefix('# ').strip()
-    if file.name == 'index.md':
+    if file.name == INDEX_FILENAME:
         return file.parent.name
     return file.name.removesuffix('.md')
 
@@ -36,7 +38,7 @@ def print_page(page_path: Path) -> None:
     indent = '  ' * (len(page_path.parts) - 1)
     path = page_path
     if path.is_dir():
-        path /= 'index.md'
+        path /= INDEX_FILENAME
     title = read_title(path)
     if path.exists():
         link = path.as_posix()
@@ -56,7 +58,7 @@ def main(path: Path) -> None:
 
     print('# Índice')
     print()
-    print('[Notas](index.md)')
+    print(f'[Notas]({INDEX_FILENAME})')
     for section in sections:
         print_page(section)
 
