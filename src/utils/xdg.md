@@ -11,7 +11,7 @@
 - [Especificação](https://specifications.freedesktop.org/desktop-entry/latest/)
 - [Wiki do Arch](https://wiki.archlinux.org/title/Desktop_entries)
 
-- Diretórios:
+Diretórios:
   - `/usr/share/applications`
   - `~/.local/share/applications`
 
@@ -53,7 +53,7 @@ update-desktop-database ~/.local/share/applications
 - [Especificação](https://specifications.freedesktop.org/shared-mime-info/latest/)
 - [XDG MIME Applications na Wiki do Arch](https://wiki.archlinux.org/title/XDG_MIME_Applications)
 
-- Diretórios:
+Diretórios:
   - `/usr/share/mime`
   - `~/.local/share/mime`
 
