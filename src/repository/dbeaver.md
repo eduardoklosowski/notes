@@ -9,7 +9,7 @@
 ## Chave GPG
 
 ```sh
-wget -nv -O- https://dbeaver.io/debs/dbeaver.gpg.key | gpg --dearmor > /etc/apt/keyrings/dbeaver.gpg
+wget -nv -O- https://dbeaver.io/debs/dbeaver.gpg.key | gpg --dearmor -o /etc/apt/keyrings/dbeaver.gpg
 ```
 
 ## Repositório

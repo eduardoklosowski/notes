@@ -11,7 +11,7 @@
 ## Chave GPG
 
 ```sh
-wget -nv -O- https://packages.mozilla.org/apt/repo-signing-key.gpg | gpg --dearmor > /etc/apt/keyrings/mozilla.gpg
+wget -nv -O- https://packages.mozilla.org/apt/repo-signing-key.gpg | gpg --dearmor -o /etc/apt/keyrings/mozilla.gpg
 ```
 
 ## Repositório

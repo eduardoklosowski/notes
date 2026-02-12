@@ -11,7 +11,7 @@
 ## Chave GPG
 
 ```sh
-wget -nv -O- "https://pkgs.k8s.io/core:/stable:/$(wget -q -O- https://dl.k8s.io/release/stable.txt | sed -r 's/^(v[0-9]+\.[0-9]+).*/\1/')/deb/Release.key" | gpg --dearmor > /etc/apt/keyrings/kubernetes.gpg
+wget -nv -O- "https://pkgs.k8s.io/core:/stable:/$(wget -q -O- https://dl.k8s.io/release/stable.txt | sed -r 's/^(v[0-9]+\.[0-9]+).*/\1/')/deb/Release.key" | gpg --dearmor -o /etc/apt/keyrings/kubernetes.gpg
 ```
 
 ## Repositório

@@ -9,7 +9,7 @@
 ## Chave GPG
 
 ```sh
-wget -nv -O- https://packagecloud.io/slacktechnologies/slack/gpgkey | gpg --dearmor > /etc/apt/keyrings/slack.gpg
+wget -nv -O- https://packagecloud.io/slacktechnologies/slack/gpgkey | gpg --dearmor -o /etc/apt/keyrings/slack.gpg
 ```
 
 ## Repositório

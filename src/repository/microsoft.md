@@ -11,7 +11,7 @@
 ## Chave GPG
 
 ```sh
-wget -nv -O- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/keyrings/microsoft.gpg
+wget -nv -O- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg
 ```
 
 ## Programas
