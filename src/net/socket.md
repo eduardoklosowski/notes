@@ -6,52 +6,87 @@
 
 </div>
 
-## UNIX
+Ferramentas:
+- [netcat](http://www.stearns.org/nc/)
+- [socat](http://www.dest-unreach.org/socat/)
+- [microsocks](https://github.com/rofl0r/microsocks)
 
-### Servidor UNIX
+## Testar Conexão
+
+### TCP
+
+#### Servidor TCP
+
+```sh
+nc -vlp 8000
+```
+
+```sh
+socat -dd stdio tcp-listen:8000,fork,reuseaddr
+```
+
+#### Cliente TCP
+
+```sh
+nc -v localhost 8000
+```
+
+```sh
+socat -dd stdio tcp-connect:localhost:8000
+```
+
+### UDP
+
+#### Servidor UDP
+
+```sh
+nc -vulp 8000
+```
+
+```sh
+socat -dd stdio udp-listen:8000,fork,reuseaddr
+```
+
+#### Cliente UDP
+
+```sh
+nc -vu localhost 8000
+```
+
+```sh
+socat -dd stdio udp-connect:localhost:8000
+```
+
+### UNIX
+
+#### Servidor UNIX
 
 ```sh
 socat -dd stdio unix-listen:app.sock,fork
 ```
 
-### Cliente UNIX
+#### Cliente UNIX
 
 ```sh
 socat -dd stdio unix-connect:app.sock
 ```
 
-## UDP
+## Redirecionamento de Porta
 
-### Servidor UDP
+### TCP
 
 ```sh
-nc -vulp 8000
-
-socat -dd stdio udp-listen:8000,fork,reuseaddr
+socat -dd TCP-LISTEN:8080,fork,reuseaddr TCP:10.0.0.1:80
 ```
 
-### Cliente UDP
+### UDP
 
 ```sh
-nc -vu localhost 8000
-
-socat -dd stdio udp-connect:localhost:8000
+socat -dd UDP-LISTEN:8080,fork,reuseaddr UDP:10.0.0.1:8000
 ```
 
-## TCP
-
-### Servidor TCP
+### UNIX
 
 ```sh
-nc -vlp 8000
-
-socat -dd stdio tcp-listen:8000,fork,reuseaddr
-```
-
-### Cliente TCP
-
-```sh
-nc -v localhost 8000
-
-socat -dd stdio tcp-connect:localhost:8000
+socat -dd TCP-LISTEN:8080,fork,reuseaddr UNIX:/var/run/http.sock
 ```
