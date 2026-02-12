@@ -90,3 +90,46 @@ socat -dd UDP-LISTEN:8080,fork,reuseaddr UDP:10.0.0.1:8000
 ```sh
 socat -dd TCP-LISTEN:8080,fork,reuseaddr UNIX:/var/run/http.sock
 ```
+
+## Proxy SOCKS
+
+### MicroSocks
+
+- **Pacote:** [microsocks](https://packages.debian.org/stable/microsocks)
+
+```sh
+# Configuração padrão
+microsocks
+
+# Ourir na rede
+microsocks -i 0.0.0.0 -p 1080
+
+# Autentica acesso
+microsocks -u username -P password
+
+# Define IP de saída
+microsocks -b 10.0.0.5
+```
+
+### gost - GO Simple Tunnel
+
+- [Releases](https://github.com/ginuerzh/gost/releases/)
+
+```sh
+wget -O- https://github.com/ginuerzh/gost/releases/download/v2.12.0/gost_2.12.0_linux_amd64.tar.gz | tar -xzf - gost
+
+# Serviço local
+./gost -L=socks5://127.0.0.1:1080
+
+# Ouvir na rede
+./gost -L=socks5://:1080
+
+# Autentica acesso
+./gost -L=socks5://user:senha@:1080
+```
+
+### Clientes
+
+```sh
+curl -x socks5h://server:1080 https://ifconfig.me
+```
