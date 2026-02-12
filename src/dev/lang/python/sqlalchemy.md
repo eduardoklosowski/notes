@@ -8,6 +8,15 @@
 
 - [Site](https://www.sqlalchemy.org/)
 
+## Instalação
+
+```sh
+pip install sqlalchemy
+```
+
+Suporte ao banco:
+- PostgreSQL: `psycopg[binary]`
+
 ## Conexão
 
 ```python
