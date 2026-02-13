@@ -90,6 +90,8 @@ openssl req -in requisicao.csr -noout -text -verify
 
 ```sh
 openssl x509 -in certificado.crt -noout -text
+
+openssl x509 -in certificado.crt -noout -pubkey
 ```
 
 **Valida cadeia de certificados:**
