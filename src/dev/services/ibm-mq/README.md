@@ -9,6 +9,9 @@
 - [Site](https://www.ibm.com/br-pt/products/mq)
 - [Documentação](https://www.ibm.com/docs/pt-br/ibm-mq)
 
+Ferramentas:
+- [Ler cabeçalho de mensagem na DLQ](mqdlq-dumper.py.gz)
+
 ## Instalação
 
 ### Docker
@@ -20,6 +23,11 @@ Imagem: [ibm-messaging](https://icr.io/v2/ibm-messaging/mq/tags/list), [ibm-mess
 Acessar interface de MQSC:
 ```sh
 runmqsc
+```
+
+Dump completo da configuração:
+```sh
+dmpmqcfg -t all
 ```
 
 ## Gerenciador de Filas
