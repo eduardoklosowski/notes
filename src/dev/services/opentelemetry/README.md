@@ -46,3 +46,7 @@ services:
 volumes:
   olgtm-data:
 ```
+
+## Exemplos
+
+- [Trace distribuído entre diversas aplicações](otel-distribuido.tar.gz)
