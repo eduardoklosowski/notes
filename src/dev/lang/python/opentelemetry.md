@@ -36,12 +36,19 @@ Exemplo de código:
 ```python
 from logging import INFO, basicConfig, getLogger
 
+from opentelemetry import metrics
 from opentelemetry import trace
 
 basicConfig(level=INFO)  # Opcional
 
 log = getLogger(__name__)
 tracer = trace.get_tracer(__name__)
+meter = metrics.get_meter('app')
+
+event_counter = meter.create_counter(
+    'event_counter',
+    description='Número de eventos',
+)
 
 @tracer.start_as_current_span('minha_funcao')
 def minha_funcao(param1: str, param2: str):
@@ -51,5 +58,6 @@ def minha_funcao(param1: str, param2: str):
     result = 10
     trace_span.set_attribute('result', result)
     trace_span.set_status(trace.StatusCode.OK)
+    event_counter.add(1, {'param1': param1, 'param2': param2, 'result': result})
     return result
 ```
