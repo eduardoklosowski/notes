@@ -17,7 +17,7 @@
 
 export OTEL_SERVICE_NAME="nome-aplicacao"
 export OTEL_RESOURCE_ATTRIBUTES="env=local,attr=value"
-export OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED="true"
+export OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED="true"  # Necessário em versões anteriores a 1.40.0
 .venv/bin/opentelemetry-instrument <comando-da-aplicacao>
 ```
 
@@ -29,7 +29,7 @@ export OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED="true"
 Dependência:
 ```toml
 [project]
-dependencies = ["opentelemetry-api >=1.39,<2"]
+dependencies = ["opentelemetry-api >=1.40,<2"]
 ```
 
 Exemplo de código:
