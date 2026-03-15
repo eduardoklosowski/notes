@@ -30,7 +30,7 @@ Para o autocomplete funcionar, assim como ocorre no comando `ssh`, é necessári
 
 ```sh
 source /usr/share/bash-completion/completions/ssh
-complete -F _ssh ssht
+complete -F _comp_cmd_ssh ssht
 ```
 
 Após reiniciar o shell será possível conectar no servidor usando `ssht <endereço>`, exemplo `ssht localhost`. E caso a conexão seja perdida, ou usando o comando `Ctrl + b, d` (se não foi alterado na configuração do tmux), basta usar o mesmo comando para reconectar no servidor e voltar a sessão que estava aberta.
