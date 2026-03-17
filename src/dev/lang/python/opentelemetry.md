@@ -35,6 +35,7 @@ dependencies = ["opentelemetry-api >=1.40,<2"]
 Exemplo de código:
 ```python
 from logging import INFO, basicConfig, getLogger
+from random import randint
 
 from opentelemetry import metrics
 from opentelemetry import trace
@@ -48,6 +49,16 @@ meter = metrics.get_meter('app')
 event_counter = meter.create_counter(
     'event_counter',
     description='Número de eventos',
+)
+
+def get_random_value(options: metrics.CallbackOptions) -> Generator[metrics.Observation]:
+    yield metrics.Observation(randint(0, 10), {'key': '1'})
+    yield metrics.Observation(randint(0, 10), {'key': '2'})
+
+random_value_metric = meter.create_observable_gauge(
+    'random.value',
+    description='Valor aleatório',
+    callbacks=[get_random_value],
 )
 
 @tracer.start_as_current_span('minha_funcao')
