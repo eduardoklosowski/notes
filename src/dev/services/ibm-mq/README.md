@@ -14,9 +14,11 @@ Ferramentas:
 
 ## Instalação
 
+- [GitHub Releases](https://github.com/ibm-messaging/mq-container/releases)
+
 ### Docker
 
-Imagem: [ibm-messaging](https://icr.io/v2/ibm-messaging/mq/tags/list), [ibm-messaging](https://github.com/ibm-messaging/mq-container/releases) (versões antigas)
+Imagem: [IBM Container Registry](https://icr.io/v2/ibm-messaging/mq/tags/list), [Docker Hub](https://hub.docker.com/r/ibmcom/mq) (versões antigas)
 
 ## Config
 
