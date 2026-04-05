@@ -144,15 +144,59 @@ curl -s http://localhost:4566/_localstack/init/ready
 ```yaml
 services:
   aws:
-    image: localstack/localstack:4.1.1
+    image: localstack/localstack:4.14.0
     restart: unless-stopped
     volumes:
       - aws-data:/var/lib/localstack
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /run/docker.sock:/run/docker.sock
       - ./init.sh:/etc/localstack/init/ready.d/init.sh:ro  # Script para criar recursos
     ports:
       - 4566:4566
       - 4510-4559:4510-4559
 volumes:
   aws-data:
+```
+
+### MiniStack
+
+- [Site](https://ministack.org/)
+- [Documentação](https://github.com/Nahuel990/ministack)
+
+**Imagem Docker:**
+
+- [Docker Hub](https://hub.docker.com/r/nahuelnucera/ministack)
+
+```yaml
+services:
+  aws:
+    image: nahuelnucera/ministack:1.1
+    restart: unless-stopped
+    volumes:
+      - ./config/ministack/entrypoint:/docker-entrypoint-initaws.d:ro
+      - /run/docker.sock:/run/docker.sock
+    ports:
+      - 4566:4566
+```
+
+### Moto
+
+- [Site](https://github.com/getmoto/moto)
+- [Documentação](https://docs.getmoto.org/)
+
+**Imagem Docker:**
+
+- [Docker Hub](https://hub.docker.com/r/motoserver/moto)
+- [GitHub](https://github.com/getmoto/moto/pkgs/container/motoserver)
+
+```yaml
+services:
+  aws:
+    image: ghcr.io/getmoto/motoserver:5.1.22
+    restart: unless-stopped
+    environment:
+      MOTO_PORT: "4566"
+    volumes:
+      - /run/docker.sock:/run/docker.sock
+    ports:
+      - 4566:4566
 ```
