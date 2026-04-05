@@ -15,7 +15,7 @@
 
 ```sh
 cd /usr/local
-wget -O- https://ollama.com/download/ollama-linux-amd64.tgz | tar -xzf -
+wget -O- https://ollama.com/download/ollama-linux-amd64.tar.zst | tar --zstd -xf -
 
 # bash-completion
 wget -O /etc/bash_completion.d/ollama https://github.com/ehrlz/ollama-bash-completion-plugin/raw/refs/heads/main/plugin.sh
@@ -25,7 +25,7 @@ wget -O /etc/bash_completion.d/ollama https://github.com/ehrlz/ollama-bash-compl
 
 ```sh
 cd ~/.local/bin
-wget -O- https://ollama.com/download/ollama-linux-amd64.tgz | tar -xzf - bin/ollama --strip-components=1
+wget -O- https://ollama.com/download/ollama-linux-amd64.tar.zst | tar --zstd -xf - bin/ollama --strip-components=1
 
 # bash-completion
 wget -O ~/.local/share/bash-completion/completions/ollama https://github.com/ehrlz/ollama-bash-completion-plugin/raw/refs/heads/main/plugin.sh
@@ -42,7 +42,7 @@ ollama serve
 Baixa LLM:
 
 ```sh
-ollama run <name>:<tag>
+ollama pull <name>:<tag>
 ```
 
 Executa LLM no terminal iterativo:
@@ -53,8 +53,8 @@ ollama run <name>:<tag>
 
 ## LLM
 
-- [gemma3](https://ollama.com/library/gemma3)
-- [qwen3](https://ollama.com/library/qwen3)
+- [gemma4](https://ollama.com/library/gemma4)
+- [qwen3.5](https://ollama.com/library/qwen3.5)
 - [granite4](https://ollama.com/library/granite4)
 
 ## Open WebUI
