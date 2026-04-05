@@ -6,6 +6,21 @@
 
 </div>
 
+## Cliente HTTP
+
+### Bash
+
+```sh
+exec 5<>/dev/tcp/ddg.gg/80
+cat >&5 <<EOF
+GET / HTTP/1.1
+Host: ddg.gg
+Connection: close
+
+EOF
+cat <&5
+```
+
 ## Proxy HTTP
 
 ### Enviar Requisições HTTP via Proxy
