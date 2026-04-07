@@ -22,7 +22,7 @@ nc -vlp 8000
 ```
 
 ```sh
-socat -dd stdio tcp-listen:8000,fork,reuseaddr
+socat -dd STDIO TCP-LISTEN:8000,fork,reuseaddr
 ```
 
 #### Cliente TCP
@@ -32,7 +32,7 @@ nc -v localhost 8000
 ```
 
 ```sh
-socat -dd stdio tcp-connect:localhost:8000
+socat -dd STDIO TCP-CONNECT:localhost:8000
 ```
 
 ### UDP
@@ -44,7 +44,7 @@ nc -vulp 8000
 ```
 
 ```sh
-socat -dd stdio udp-listen:8000,fork,reuseaddr
+socat -dd STDIO UDP-LISTEN:8000,fork,reuseaddr
 ```
 
 #### Cliente UDP
@@ -54,7 +54,7 @@ nc -vu localhost 8000
 ```
 
 ```sh
-socat -dd stdio udp-connect:localhost:8000
+socat -dd STDIO UDP-connect:localhost:8000
 ```
 
 ### UNIX
@@ -62,13 +62,13 @@ socat -dd stdio udp-connect:localhost:8000
 #### Servidor UNIX
 
 ```sh
-socat -dd stdio unix-listen:app.sock,fork
+socat -dd STDIO UNIX-LISTEN:app.sock,fork
 ```
 
 #### Cliente UNIX
 
 ```sh
-socat -dd stdio unix-connect:app.sock
+socat -dd STDIO UNIX-CONNECT:app.sock
 ```
 
 ## Redirecionamento de Porta
@@ -77,6 +77,8 @@ socat -dd stdio unix-connect:app.sock
 
 ```sh
 socat -dd TCP-LISTEN:8080,fork,reuseaddr TCP:10.0.0.1:80
+
+socat -dd TCP-LISTEN:8000,fork,reuseaddr SOCKS5-CONNECT:localhost:1080:10.0.0.1:80
 ```
 
 ### UDP
