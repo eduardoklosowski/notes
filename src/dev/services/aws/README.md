@@ -153,6 +153,13 @@ services:
     ports:
       - 4566:4566
       - 4510-4559:4510-4559
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/init/ready"]
+      start_period: 30s
+      start_interval: 5s
+      interval: 1m
+      timeout: 3s
+      retries: 3
 volumes:
   aws-data:
 ```
