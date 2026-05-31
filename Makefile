@@ -1,5 +1,5 @@
 MDBOOK_VERSION := 0.5.3
-MDBOOK_TOC_VERSION := 0.15.3
+MDBOOK_TOC_VERSION := 0.15.4
 
 BINARIES := mdbook mdbook-toc
 SRC_DIR := src
