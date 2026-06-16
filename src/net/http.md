@@ -21,6 +21,13 @@ EOF
 cat <&5
 ```
 
+### cURL
+
+Testar host de um servidor:
+```sh
+curl -4 --resolve exemplo.br:443:127.0.0.1 https://exemplo.br/
+```
+
 ## Proxy HTTP
 
 ### Enviar Requisições HTTP via Proxy
