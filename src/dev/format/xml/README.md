@@ -24,3 +24,7 @@ xmllint --format arquivo.xml
   xsi:schemaLocation="http://localhost/namespace http://localhost/namespace/schema.xsd">
 </base>
 ```
+
+```sh
+xmllint --schema schema.xsd --noout arquivo.xml
+```
