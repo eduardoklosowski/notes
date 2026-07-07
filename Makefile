@@ -1,4 +1,4 @@
-MDBOOK_VERSION := 0.5.3
+MDBOOK_VERSION := 0.5.4
 MDBOOK_TOC_VERSION := 0.15.4
 
 BINARIES := mdbook mdbook-toc
