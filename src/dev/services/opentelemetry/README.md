@@ -11,6 +11,16 @@
 - Notas por linguagem:
   - [Python](../../lang/python/opentelemetry.md)
 
+## Configuração
+
+```sh
+OTEL_SERVICE_NAME='app'
+OTEL_RESOURCE_ATTRIBUTES='project=my-app,env=local'
+OTEL_EXPORTER_OTLP_PROTOCOL='grpc'
+OTEL_EXPORTER_OTLP_ENDPOINT='http://localhost:4317'
+OTEL_EXPORTER_OTLP_INSECURE='true'
+```
+
 ## Imagens
 
 ### Grafana - All in One
