@@ -125,6 +125,32 @@ AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_SESSION_TOKEN=test AWS_DEF
 
 ## Mocks
 
+### Floci
+
+- [Site](https://floci.io/aws/)
+- [Documentação](https://floci.io/floci/)
+- [Repositório](https://github.com/floci-io/floci)
+
+**Imagem Docker:**
+
+- [Docker Hub](https://hub.docker.com/r/floci/floci)
+
+```yaml
+services:
+  aws:
+    image: floci/floci:2.1.0
+    restart: unless-stopped
+    environment:
+      FLOCI_PORT: "4566"
+    volumes:
+      - floci-data:/app/data
+      - /run/docker.sock:/run/docker.sock
+    ports:
+      - 4566:4566
+volumes:
+  floci-data:
+```
+
 ### LocalStack
 
 - [Site](https://www.localstack.cloud/)
