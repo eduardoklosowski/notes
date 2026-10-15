@@ -32,6 +32,7 @@ xmllint --schema schema.xsd --noout arquivo.xml
 ## Assinatura
 
 - **Pacote:** [xmlsec1](https://packages.debian.org/sid/xmlsec1)
+- **Padrões:** [1.1](https://www.w3.org/TR/xmldsig-core/), [2.0](https://www.w3.org/TR/xmldsig-core2/)
 
 `exemplo.xml`:
 ```xml
