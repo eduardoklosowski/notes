@@ -6,23 +6,21 @@
 
 </div>
 
-- [Documentação](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux#w_instale-o-pacote-deb-do-firefox-em-distribuicoes-baseadas-em-debian-recomendado)
-
 ## Chave GPG
 
 ```sh
 wget -nv -O- https://packages.mozilla.org/apt/repo-signing-key.gpg | gpg --dearmor -o /etc/apt/keyrings/mozilla.gpg
 ```
 
-## Repositório
+## Programas
+
+### Firefox
+
+- [Documentação](https://support.mozilla.org/pt-BR/kb/instale-o-firefox-no-linux#w_instale-o-pacote-deb-do-firefox-em-distribuicoes-baseadas-em-debian-recomendado)
 
 ```sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/mozilla.gpg] https://packages.mozilla.org/apt mozilla main" > /etc/apt/sources.list.d/mozilla.list
 ```
-
-## Programas
-
-### Firefox
 
 ```sh
 apt install firefox firefox-l10n-pt-br
@@ -50,3 +48,15 @@ EOF
   - `browser.tabs.closeWindowWithLastTab`: `false`
   - `browser.tabs.insertRelatedAfterCurrent`: `false`
   - `browser.urlbar.trimURLs`: `false`
+
+### Thunderbird
+
+- [Documentação](https://support.mozilla.org/pt-BR/kb/instalando-o-thunderbird-no-linux#w_instale-o-pacote-deb-para-distribuicoes-baseadas-em-debian-e-ubuntu-recomendado)
+
+```sh
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/mozilla.gpg] https://packages.mozilla.org/apt thunderbird-deb main" > /etc/apt/sources.list.d/thunderbird.list
+```
+
+```sh
+apt install thunderbird thunderbird-l10n-pt-br
+```
