@@ -138,17 +138,50 @@ AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_SESSION_TOKEN=test AWS_DEF
 ```yaml
 services:
   aws:
-    image: floci/floci:2.1.0
+    image: floci/floci:2.5.0-compat
     restart: unless-stopped
     environment:
       FLOCI_PORT: "4566"
     volumes:
-      - floci-data:/app/data
+      - ./config/aws/ready.d:/etc/floci/init/ready.d:ro
+      - ./config/aws/stop.d:/etc/floci/init/stop.d:ro
+      - ./config/aws/start.d:/etc/floci/init/start.d:ro
+      - aws-data:/app/data
       - /run/docker.sock:/run/docker.sock
     ports:
       - 4566:4566
+    healthcheck:
+      test: ["CMD", "bash", "-c", "(stat /tmp/aws-ready && aws sts get-caller-identity) >/dev/null"]
+      start_period: 30s
+      start_interval: 1s
+      interval: 30s
+      timeout: 5s
+      retries: 2
 volumes:
-  floci-data:
+  aws-data:
+```
+
+`./config/aws/ready.d/00-state.sh`:
+```sh
+#!/bin/sh
+
+> /tmp/aws-ready
+```
+
+`./config/aws/stop.d/00-state.sh`:
+```sh
+#!/bin/sh
+
+rm -f /tmp/aws-ready
+```
+
+`./config/aws/start.d/sqs.sh`:
+```sh
+#!/bin/bash
+
+set -e
+
+aws sqs create-queue --queue-name minha-fila
 ```
 
 ### LocalStack
