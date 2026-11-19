@@ -1,4 +1,4 @@
-# Amazon Elastic Container Registry
+# Amazon Elastic Container Registry (ECR)
 
 <div class="page-toc">
 
